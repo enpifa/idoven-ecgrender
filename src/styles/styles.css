@@ -1,0 +1,30 @@
+.App-header {
+    background-color: #282c34;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App {
+    text-align: center;
+}
+
+.informationBoxCard {
+    padding: 16px;
+}
+
+.canvasLoading {
+    height: 0px;
+}
+
+.canvasLoaded {
+    height: auto;
+}
+
+.resetZoomButton {
+    background-color: #002736;
+}

@@ -1,13 +1,20 @@
 import React from 'react';
-import './App.css';
+import './styles/styles.css';
 import EcgChartManager from './components/EcgChartManager';
+import InformationBox from './components/InformationBox';
+import Header from './components/Header'
+
+// TODO
+// context
+// try big file
+// lazy loading
+// tests
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Idoven.ai Coding Challenge</p>
-      </header>
+      <Header />
+      <InformationBox />
       <EcgChartManager />
     </div>
   );
