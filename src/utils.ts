@@ -36,3 +36,13 @@ export const getDatasets = (data:(number | null)[][]): chartjs.ChartDataset[] =>
         },
     ]
 }
+
+export const parseData = (data: string) => {
+    const lines: string[] = data.trim().split('\n');
+    const parsedChunk: (number | null)[][] = lines.map((line) => {
+        const values: string[] = line.split(',');
+        return values.map((value) => parseFloat(value.trim()) || null);
+    });
+
+    return parsedChunk
+}
