@@ -11,12 +11,14 @@ let resetZoom: (mode: 'none') => void;
 
 const EcgChart = ({ ecgData }: {ecgData?: (number | null)[][]}) => {
     const chartRef = React.useRef<HTMLCanvasElement | null>(null);
-    const [isLoading, setIsLoading] = React.useState<boolean>(false)
-    const [hasData, setHasData] = React.useState<boolean>(false)
+    const [isLoading, setIsLoading] = React.useState<boolean>(false);
+    const [hasData, setHasData] = React.useState<boolean>(false);
     let chartInstance: Chart | null = null;
-    const context = React.useContext(FileContext)
+    const context = React.useContext(FileContext);
 
     React.useEffect(() => {
+        // once the context has already been set for the first time (might be set multiple time with many chunks of data),
+        // we can start creating the chart to display it
         if (context?.data && context?.data.length !== 0 && chartRef.current) {
             const ctx = chartRef.current.getContext('2d');
             if (ctx) {
@@ -24,9 +26,9 @@ const EcgChart = ({ ecgData }: {ecgData?: (number | null)[][]}) => {
                     // Destroy existing chart instance
                     (chartInstance as Chart).destroy();
                 }
-                console.log("Loading chart...")
-                setHasData(true)
-                setIsLoading(true)
+                console.log("Loading chart...");
+                setHasData(true);
+                setIsLoading(true);
                 chartInstance = new Chart(ctx, {
                     type: 'line',
                     data: {
@@ -35,14 +37,14 @@ const EcgChart = ({ ecgData }: {ecgData?: (number | null)[][]}) => {
                     },
                     options,
                 });
-                console.log("Chart loaded!")
-                setIsLoading(false)
-                resetZoom = chartInstance.resetZoom
+                console.log("Chart loaded!");
+                setIsLoading(false);
+                resetZoom = chartInstance.resetZoom;
             }
         } else {
-            setHasData(false)
+            setHasData(false);
         }
-        setIsLoading(false)
+        setIsLoading(false);
 
         return () => {
             if (chartInstance) {

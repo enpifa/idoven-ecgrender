@@ -11,7 +11,8 @@ import zoomPlugin from 'chartjs-plugin-zoom';
 Chart.register(zoomPlugin);
 
 function App() {
-  const [data, setData] = React.useState<(number | null)[][]>([])
+  const [data, setData] = React.useState<(number | null)[][]>([]);
+  
   return (
     <FileContext.Provider value={{data, setData}}>
       <div className="App">

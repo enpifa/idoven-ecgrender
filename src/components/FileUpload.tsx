@@ -4,7 +4,7 @@ import {parseData} from '../utils'
 import { Input } from '@mui/material'
 
 const FileUpload: React.FC = () => {
-    const context = React.useContext(FileContext)
+    const context = React.useContext(FileContext);
 
     const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         /**
@@ -29,7 +29,7 @@ const FileUpload: React.FC = () => {
                     reader.onload = async (e) => {
                         if (e.target?.result) {
                             const chunkData: string = e.target.result.toString();
-                            const parsedChunk = parseData(chunkData)
+                            const parsedChunk = parseData(chunkData);
                             chunks.push(...parsedChunk);
                             currentChunk++;
                             

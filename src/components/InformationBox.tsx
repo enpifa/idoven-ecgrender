@@ -17,4 +17,4 @@ const InformationBox = () => {
     )
 }
 
-export default InformationBox
+export default InformationBox;
