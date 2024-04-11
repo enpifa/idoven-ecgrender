@@ -59,7 +59,7 @@ const EcgChart = ({ ecgData }: {ecgData?: (number | null)[][]}) => {
             <div className={isLoading ? 'canvasLoading' : 'canvasLoaded'}>
                 <canvas ref={chartRef}></canvas>
             </div>
-            {hasData && !isLoading ? <Button variant="contained" color="secondary" onClick={() => resetZoom ? resetZoom('none') : () => {}}>Reset zoom</Button> : null}
+            {hasData && !isLoading ? <Button variant="contained" color="secondary" onClick={() => resetZoom ? resetZoom('none') : () => {}}>Reset chart</Button> : null}
         </div>
     )
 };
